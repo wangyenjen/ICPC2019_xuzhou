@@ -1,0 +1,41 @@
+cflags = -std=c++17 -Wall -Wextra -Werror -fsanitize=undefined $
+         -isystem ../include
+
+rule cxx
+  command = g++ $cflags $in -o $out
+rule solution
+  command = ./solution < $in > $out
+rule gen-tree
+  command = generators/tree $args > $out && ./validator < $out
+rule gen-graph
+  command = generators/graph $args > $out && ./validator < $out
+rule gen-cycle
+  command = generators/cycle $args > $out && ./validator < $out
+rule gen-forest
+  command = generators/forest $args > $out && ./validator < $out
+
+build validator: cxx validator.cpp
+
+build solution: cxx solution.cpp
+  cflags = $cflags -O2
+
+build generators/tree: cxx generators/tree.cpp
+build generators/graph: cxx generators/graph.cpp
+build generators/cycle: cxx generators/cycle.cpp
+build generators/forest: cxx generators/forest.cpp
+
+build inputs/03.txt: gen-tree | generators/tree ./validator
+  args = 1000000
+build inputs/04.txt: gen-graph | generators/graph ./validator
+  args = 1000000 999999
+build inputs/05.txt: gen-cycle | generators/cycle ./validator
+  args = 1000000
+build inputs/06.txt: gen-forest | generators/forest ./validator
+  args = 1000000 2
+
+build outputs/01-sample.txt: solution inputs/01-sample.txt | ./solution
+build outputs/02-sample.txt: solution inputs/02-sample.txt | ./solution
+build outputs/03.txt: solution inputs/03.txt | ./solution
+build outputs/04.txt: solution inputs/04.txt | ./solution
+build outputs/05.txt: solution inputs/05.txt | ./solution
+build outputs/06.txt: solution inputs/06.txt | ./solution

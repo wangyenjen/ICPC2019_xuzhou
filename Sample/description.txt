@@ -1,0 +1,42 @@
+Easy Problem
+============
+
+Given a graph, decide if the graph is a tree.
+
+Input
+-----
+The first line contains two integers,
+$n$ and $m$ ($1 \le n, m, \le 10^6$) ---
+the number of vertices and the number of edges.
+
+Each of the next $m$ lines contains two integers $a_i$ and $b_i$,
+($1 \le a_i, b_i \le n$),
+meaning edge $i$ connects vertex $a_i$ and vertex $b_i$.
+
+Output
+------
+`"Yes"` (without the quotes) if the number is a tree;
+`"No"` otherwise.
+
+Sample Input 1
+--------------
+4 3
+1 2
+2 3
+2 4
+
+Sample Output 1
+---------------
+Yes
+
+Sample Input 2
+--------------
+4 4
+1 2
+1 2
+3 4
+3 4
+
+Sample Output 2
+---------------
+No
