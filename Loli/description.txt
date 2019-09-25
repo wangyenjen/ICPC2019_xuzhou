@@ -1,0 +1,34 @@
+<!--TBD, this is the simple version-->
+# Loli
+
+## Description
+
+T testcases, each testcase is L R C, find the largest (r- l + 1), such that L <= l <= r <= R && l xor (l + 1) xor ..... xor r <= C
+
+## Input
+
+T
+L R C
+......
+L R C
+
+* $1 \le T \le 5 \times10^5$
+* $1 \le L \le R \le 10^{18}$
+* $0 \le C \le 2 \times 10^{18}$
+
+### Output
+
+output the answer, if no l, r, output -1
+
+### Sample Input
+
+```
+1
+1 1 0
+```
+
+### Sample Output
+
+```
+-1
+```
