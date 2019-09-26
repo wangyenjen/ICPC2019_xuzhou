@@ -1,0 +1,33 @@
+<!--TBD, this is the simple version-->
+# Loli loli, and loli!!!
+
+## Description
+
+given array a_1 ~ a_n and Q events, it contains single point modification and query, query contain L R l r, count (i, j) such that L <= i <= R, l <= j <= r, and a_i == a_j
+
+## Input
+
+N Q
+a_1 a_2 .... a_N
+1 pos val
+2 L R l r
+
+* $1 \le N, Q \le 10^5$
+* $1 \le a_i \le 10^5$
+* $1 \le l \le r \le N, 1 \le L \le R \le N$
+
+### Output
+
+output the answer each query
+
+### Sample Input
+
+```
+TBD
+```
+
+### Sample Output
+
+```
+TBD
+```
