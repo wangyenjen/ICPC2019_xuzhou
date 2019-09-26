@@ -1,0 +1,40 @@
+<!--TBD, this is the simple version-->
+# Loli distance!
+
+## Description
+
+two arrays loli distance is:
+* len not same --> 10^{100}
+* otherwaise, it is equal to hamming distance
+
+given a set of arrays; in each query, ask how many array in the set whose loi distance <= 2
+
+## Input
+
+N
+sz_1 a_1 a_2 ... a_{sz_1}
+...
+sz_N a_1 a_2 ... a_{sz_N}
+Q
+sz_1 a_1 a_2 ... a_{sz_1}
+...
+sz_Q a_1 a_2 ... a_{sz_Q}
+
+* $1 \le N, Q, sigma \le 10^5$
+* $1 \le a_i \le 10^9$
+
+### Output
+
+output the answer each query
+
+### Sample Input
+
+```
+TBD
+```
+
+### Sample Output
+
+```
+TBD
+```
