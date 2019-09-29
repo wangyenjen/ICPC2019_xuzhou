@@ -1,40 +1,52 @@
-<!--TBD, this is the simple version-->
-# Loli distance!
+# Loli distance
 
 ## Description
 
-two arrays loli distance is:
-* len not same --> 10^{100}
-* otherwaise, it is equal to hamming distance
+Yen-Jen loves loli so much!
 
-given a set of arrays; in each query, ask how many array in the set whose loi distance <= 2
+Yen-Jen define the so-called loli distance of two integer sequences $S$ and $T$ as follows:
+ 
+* if the length of two sequences is not the same, then the loli distance of $S$ and $T$ is $10^{100}$
+* Otherwise, the loli distance between $S$ and $T$ is the number of positions at which the corresponding integers are different.
 
+Now, Yen-Jen has $N$ integer sequence which is selected by his best friend: little cute cat!
+
+But now, little cute cat wants to challenge Yen-Jen with $Q$ questions, in each question, little cute cat will come up with an integer sequence $T$, and she wants Yen-Jen to answer the number of sequences $S$ he has, such that the loli distnace of $S$ and $T$ is not greater then 2.
+ 
 ## Input
 
-N
-sz_1 a_1 a_2 ... a_{sz_1}
-...
-sz_N a_1 a_2 ... a_{sz_N}
-Q
-sz_1 a_1 a_2 ... a_{sz_1}
-...
-sz_Q a_1 a_2 ... a_{sz_Q}
+The first line of the input contains one integer $N$ denotes the number of integer sequences that Yen-Jen has.
 
-* $1 \le N, Q, sigma \le 10^5$
-* $1 \le a_i \le 10^9$
+In the next $N$ line, each line contains an integer sequence. The first integer of each line $L$ denotes the length of the integer sequence. Then, the next $L$ integers are the elements in the integer sequence.
+
+Then, the line contains one integer $Q$ denotes the number of questions that little cute cat wants to challenge.
+
+In the next $Q$ line, each line contains an integer sequence. The first integer of each line $L$ denotes the length of the integer sequence. Then, the next $L$ integers are the elements in the integer sequence.
+
+* $1 \le N, Q \le 10^5$
+* $1 \le$ the elements in integer sequence $\le 10^9$
+* It it guarantee that the total length of integer sequences of Yen-Jen and little cute cat is not greater than $10^5$.
 
 ### Output
 
-output the answer each query
+For each question that little cute cat challenge Yen-Jen, output the corresponding answer.
 
 ### Sample Input
 
 ```
-TBD
+2
+3 1 2 3
+3 4 3 1
+3
+3 5 5 5
+3 4 0 3
+3 1 2 5
 ```
 
 ### Sample Output
 
 ```
-TBD
+0
+2
+1
 ```

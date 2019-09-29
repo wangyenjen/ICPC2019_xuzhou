@@ -1,33 +1,50 @@
-<!--TBD, this is the simple version-->
 # Loli loli, and loli!!!
 
 ## Description
 
-given array a_1 ~ a_n and Q events, it contains single point modification and query, query contain L R l r, count (i, j) such that L <= i <= R, l <= j <= r, and a_i == a_j
+Yen-Jen loves lolis very much!
+
+Now, there are $N$ cute lolis standing in a line, the $i^{th}$ loli's beauty value is $a_i$.
+
+There are $Q$ events happening in chronological order. There are two types of events: modify and query. 
+
+In modify event, Yen-Jen thinks that the $x^{th}$ loli's value is not good. He thinks that $a_x$ should be $y$ instead.
+
+In query event, Yen-Jen will pick up two continuous segments $[L, R]$ and $[l, r]$, and count the pair of lolis whose beauty value is the same. Formally speaking, Yen-Jen will count the pair $(i, j)$, such that $L \le i \le R, l \le j \le r$, and $a_i = a_j$.
 
 ## Input
 
-N Q
-a_1 a_2 .... a_N
-1 pos val
-2 L R l r
+The first line of the input contains two integers $N, Q$, which denotes the number of lolis, and the number of events.
+
+In the next line, there are $N$ integers $a_1, a_2, \dots, a_N$. $a_i$ denotes the beauty value of the $i^{th}$ loli initially.
+
+Then, there are the description of the $Q$ events, each events occupy a line.
+
+The line starts with an integer $t$ denotes the type of event. If $t = 1$, then it is an modify event, two integers $x, y$ will come after $t$. If $t = 2$, then it is an query event, four integers $L, R, l, r$ will come later. The definition of the parameters are mentioned above!
 
 * $1 \le N, Q \le 10^5$
 * $1 \le a_i \le 10^5$
 * $1 \le l \le r \le N, 1 \le L \le R \le N$
+* $1 \le x \le N$
+* $1 \le y \le 10^5$
 
 ### Output
 
-output the answer each query
+For each query, output the corresponding number of pairs.
 
 ### Sample Input
 
 ```
-TBD
+4 3
+1 3 2 3
+2 1 3 2 4
+1 4 4
+2 1 3 2 4
 ```
 
 ### Sample Output
 
 ```
-TBD
+3
+2
 ```
