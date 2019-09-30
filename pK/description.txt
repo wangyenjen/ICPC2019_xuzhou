@@ -1,0 +1,60 @@
+# K-rectangle
+
+## Description
+
+There are n points on the plane, ($x_1, y_1$),($x_2,y_2$)…($x_n,y_n$), $x_i< x_{i+1}$,$0< y_i$
+
+You need to place several rectangles to cover all of them with the follow constraints.
+
+(a point is covered if it lies inside the rectangle or on the side of the rectangle)
+
+1. The bottom side of the rectangle should be $y = 0$
+2. The cost of a rectangle is $h\times(w + k)$
+3. Any two different rectangle can't have intersection
+4. the rectangle can degenerate to two lines which means $w = 0$ 
+
+ Please calculate the minimum cost to cover all of the points
+
+## Input
+
+The first line contains two integers,
+
+$n$ and $k$ ($1 \le n \le2\times10^5, 1\le k \le 10^6$) ---
+
+the number of vertices and the coefficient described in the problem.
+
+Each of the next $m$ lines contains two integers,
+
+ $x_i$ and $y_i$($-10^6 \le x_i \le 10^6, 1\le y_i \le 10^6$)---
+meaning $i^{th}$ point is at ($x_i$ ,$y_i$).
+
+## Output
+
+The minimum cost that satisfied the problem.
+
+### Sample Input 1
+
+```
+1 2
+-666 666
+```
+
+### Sample Output 1
+
+```
+1332
+```
+
+### Sample Input 2
+
+```
+2 66666
+-666 666
+666 666
+```
+
+### Sample Output 2
+
+```
+45286668
+```
