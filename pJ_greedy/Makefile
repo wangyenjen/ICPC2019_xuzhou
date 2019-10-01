@@ -1,6 +1,8 @@
 CXX = g++
 
 all: generators/gen
+	mkdir -p inputs
+	mkdir -p outputs
 	cd generators && ./gen
 
 generators/gen: generators/gen.cpp
