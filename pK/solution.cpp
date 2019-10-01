@@ -48,7 +48,7 @@ struct Seg {
 } sg;
 
 pair<int, int> pt[MXN];
-int nxt[MXN], k;
+int n, k;
 long long dp[MXN];
 int pos[1000007], lb[1000007], rb[1000007];
 vector<int> segy;
@@ -153,7 +153,7 @@ void update_convexhull(int id) {
 void find_min(int id) {
 	long long x, y; tie(x, y) = pt[id];
 
-	int ll = id, rr = nxt[id] - 1, ok = -1;
+	int ll = id, rr = n, ok = -1;
 	long long val, dlt; tie(val, dlt) = *dq[pos[y]].begin();
 	while (ll <= rr) {
 		int mid = (ll + rr) >> 1;
@@ -167,37 +167,29 @@ void find_min(int id) {
 		}
 	}
 	if (ok != -1) {
-		lb[y] = ok; rb[y] = nxt[id] - 1;
-		sg.add(ok, nxt[id]-1, {val+dlt*y, y});
+		lb[y] = ok; rb[y] = n;
+		sg.add(lb[y], rb[y], {val+dlt*y, y});
 	}
 	dp[id] = sg.qy(id, x);
 }
 int main() {
-	int n; scanf("%d %d", &n, &k);
+	scanf("%d %d", &n, &k);
 	int cntp = 0;
 	for (int i = 1; i <= n; i++) {
 		int x, y; scanf("%d %d", &x, &y);
 		pt[i] = {x, y};
-		if (!pos[y]) pos[y] = ++cntp;
-	}
-
-
-	vector<pair<int, int>> stk;
-	for (int i = 1; i <= n; i++) {
-		nxt[i] = n + 1;
-		while (!stk.empty() && pt[i].second >= stk.back().second) {
-			nxt[ stk.back().first ] = i;
-			stk.pop_back();
-		}
-		stk.push_back({i, pt[i].second});
 	}
 
 	sg.bd(1, n);
-
+	long long last = 0;
 	for (int i = 1; i <= n; i++) { 
+		pt[i].second = (pt[i].second + last) % 1000000 + 1;
+		int y = pt[i].second;
+		if (!pos[y]) pos[y] = ++cntp;
 		update_convexhull(i);
 		find_min(i);
+		last = dp[i];
+		printf("%lld\n", dp[i]);
 	}
-	printf("%lld\n", dp[n]);
 	return 0;
 }

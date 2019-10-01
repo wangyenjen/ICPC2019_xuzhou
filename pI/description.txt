@@ -1,0 +1,68 @@
+# Interesting game
+
+## Description
+
+Amy and Bob are good friends. Today they want to play a game. 
+
+Here is the rule about it: 
+
+1. There are $n$ items in total. The $i^{th}$ item has $a_i$ value to Amy and $b_i$ value to Bob.
+2. Amy pick one item first. 
+
+## Input
+
+The first line contains one integer,
+
+$n$ ($1 \le n \le 3\times10^5$) ---
+
+the number of item.
+
+Each of the next $n$ lines contains two integers,
+
+$a_i$ and $b_i$($1\le a_i, b_i\le 10^9$)---
+
+meaning the $i^{th}$item has $a_i$ value to Amy and $b_i$value to Bob.
+
+## Output
+
+Output $n - 1$integers, each of them in one line.
+
+The $i^{th}$line is the value of $A - B$ when B bans exactly $i-1$ items
+
+($1\le i\le n-1$)
+
+### Sample Input 1
+
+```
+5
+2 2
+3 2
+4 4
+5 6
+6 6
+```
+
+### Sample Output 1
+
+```
+0
+0
+0
+0
+```
+
+### Sample Input 2
+
+```
+3
+4 100
+5 98
+1 100
+```
+
+### Sample Output 2
+
+```
+-95
+-96
+```
