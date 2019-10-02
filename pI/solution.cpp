@@ -75,6 +75,6 @@ int main(void) {
 	}
 	for (int i = 0; i <= n - 2; i++)
 		printf("%d\n", ans[i]);
-  	return 0;
+	return 0;
 }
 

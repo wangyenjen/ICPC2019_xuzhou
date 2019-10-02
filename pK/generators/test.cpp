@@ -283,17 +283,31 @@ void gen_sp(int n_top, int k_top, int y_num) {
 		buf[i] = y;
 	}
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 1; i <= n; i++) {
 		int x = rnd.next(-INF, INF);
 		while (in[x + INF] == cases) x = rnd.next(-INF, INF);
 		in[x + INF] = cases;
 		pt[i].first = x;
 		pt[i].second = buf[ rnd.next(1, y_num) ];
 	}
-	sort(pt, pt + n);
-	for (int i = 0; i < n; i++) {
-		printf("%d %d\n", pt[i].first, pt[i].second);
-	}
+	sort(pt + 1, pt + n + 1);
+
+    int cntp = 0;
+    sg.bd(1, n);
+    for (int i = 1; i <= n; i++) {
+        realv[i] = (pt[i].second - 1 + 1000000 - dp[i-1] % 1000000) % 1000000;
+        if (!pos[pt[i].second]) pos[pt[i].second] = ++cntp;
+        update_convexhull(i);
+        find_min(i);
+    }
+    for (int i = 1; i <= n; i++)
+        printf("%d %d\n", pt[i].first, realv[i]);
+    for (int i = 1; i <= n; i++) {
+        lb[pt[i].second] = rb[pt[i].second] = 0;
+        dq[pos[pt[i].second]].clear();
+        pos[pt[i].second] = 0;
+    }
+    segy.clear();
 }
 
 int main(int argc, char **argv) {

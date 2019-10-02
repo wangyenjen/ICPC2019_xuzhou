@@ -20,17 +20,14 @@ int32_t main(){
 		sb.insert(b);
 	}
 	for(int i=0;i<n-1;i++){
-		//cout << i << ' ' << s2.size << ' ' << s.size() << ' ' << sb.size() << '\n';
 		auto it = *--s.end();
 		auto it2 = *--s2.end();
-		//cout << complex<int>(it2.first,it2.second) << ' ';
 		sb.erase(sb.find(it2.first));
 		int f2 = it2.second - (*--sb.end());
 		sb.insert(it2.first);
 		sb.erase(sb.find(it.second));
 		int f1 = it.first - (*--sb.end());
 		sb.insert(it.second);
-		//cout << complex<int>(f1,f2) << '\n';
 		ans = min(ans,max(f1,f2));
 		cout << ans << '\n';
 		sb.erase(sb.find(it.second));
