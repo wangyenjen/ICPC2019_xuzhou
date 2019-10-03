@@ -1,0 +1,55 @@
+# Loli, Yen-Jen, and a cool problem
+
+## Description
+
+Yen-Jen loves loli very much!!!
+
+Now, he is solving a problem with a cute, cat-eared loli. But he drinks too much yesterday and his mind is not open yet, so he asked you to solve the following problem for him!
+
+Given a rooted tree with $N$ vertices(vertices are numbered from $1$ to $N$) whose root is $1$. In every node, there's an uppercase letter on it.
+
+Define one way to generate a string with len $L$ as follows:
+
+* select a start node $X$
+* go to the parent node $L - 1$ times
+* whenever goes to a node, append the corresponding English letter to the end of the string
+
+Now there are $Q$ queries, in the $i^{th}$ query, a start node $X_i$ is given. Please count the number of starting node $Y$(include $X_i$), such that $Y$ can generate the same string as $X_i$.
+
+## Input
+
+The first line of the input contains two integer $N, Q$ which is mentioned above.
+
+In the next line, a string $S$ is given, the $i^{th}$ character means the English letter on the $i^{th}$ node.
+
+Then, there are $N - 1$ integers in one line, the $i^{th}$ integer is the parent of node $i + 1$.
+
+Then, there are $Q$ lines, the $i^{th}$ line repretens the $i^{th}$ query. In each line, $X_i, L_i$ is given, which is mentioned in the description.
+
+It is guaranteed that the testcase is valid!
+
+* $1 \leq N, Q \leq 3 \times 10 ^ 5$
+* $1 \leq X_i, L_i  \leq N$
+
+### Output
+
+Output $Q$ lines, the $i^{th}$ represents the ansewr of the $i^{th}$ query.
+
+### Sample Input
+
+```
+6 3
+ABABBA
+1 1 3 3 4
+2 2
+2 1
+6 4
+```
+
+### Sample Output
+
+```
+3
+3
+1
+```
