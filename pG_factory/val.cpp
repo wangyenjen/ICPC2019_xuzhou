@@ -3,7 +3,7 @@
 
 using namespace CompLib;
 
-const int kN = 20000, kD = 50, kL = 100;
+const int kN = 20000, kD = 50, kL = 50;
 
 int main() {
   struct rlimit rlim = {RLIM_INFINITY, RLIM_INFINITY};

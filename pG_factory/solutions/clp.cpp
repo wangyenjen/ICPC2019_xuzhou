@@ -2,7 +2,8 @@
 #include <cstdlib>
 #include <coin/ClpSimplex.hpp>
 
-int x[50003][51];
+const int kN = 20000, kD = 50;
+int x[kN][kD];
 
 int main() {
   int N, D;

@@ -10,7 +10,7 @@ using namespace CompLib;
 std::mt19937_64 gen;
 typedef UniformIntDistribution<int> mrand;
 
-const int kN = 20000, kD = 50, kL = 100;
+const int kN = 20000, kD = 50, kL = 50;
 
 int x[kN][kD];
 int perm[kD];

@@ -4,12 +4,12 @@
 #include <random>
 #include <algorithm>
 
-const int kN = 50001, kD = 50;
+const int kN = 20001, kD = 50;
 
 using Data = double;
 
 std::mt19937 gen;
-std::array<Data, kD> d[50003];
+std::array<Data, kD> d[kN];
 int N, D;
 
 Data F(Data x[]) {
