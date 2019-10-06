@@ -3,8 +3,9 @@ CXXFLAGS = -O2 -Wall -I../include
 VALIDATOR = ./val
 GENERATOR = ./generator.py
 SOLUTION = ./sol
+CHECKER = ./checker
 
-EXES = $(VALIDATOR) $(SOLUTION)
+EXES = $(VALIDATOR) $(SOLUTION) $(CHECKER)
 TESTDATA = 01 02 03 04 05 06 07 08 09 10 11
 SAMPLE = sample1 sample2
 
@@ -15,8 +16,9 @@ all: $(INPUTS) $(OUTPUTS)
 
 $(EXES): %: %.cpp
 
-$(OUTPUTS): %.out: %.in $(SOLUTION)
+$(OUTPUTS): %.out: %.in $(SOLUTION) $(CHECKER)
 	\time $(SOLUTION) < $< > $@
+	$(CHECKER) $< $@ $@
 
 $(INPUTS): $(EXES) $(GENERATOR)
 

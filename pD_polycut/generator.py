@@ -13,6 +13,7 @@ np.random.seed(Z * 185 + K * 3918592 + R)
 
 N = Z * 17
 
+# generate random points on sphere
 elev = np.arcsin(np.random.random(N) * 2 - 1)
 azim = 2 * np.pi * np.random.random(N)
 radi = R * 0.99 + (R * 0.01) * np.random.random(N)
@@ -24,19 +25,24 @@ pts[:,2] = radi * np.sin(elev)
 pts[:,0] *= np.cos(azim)
 pts[:,1] *= np.sin(azim)
 
+# k, theta: rotation axis / angle
+# ph: plane point & normal vector
 k = pts[0] / np.linalg.norm(pts[0])
 ph = pts[-K*2:]
 ph /= np.linalg.norm(ph, axis = -1)[:,None]
 theta = 2 * np.pi * np.random.random()
 
+# random scaling
 pts[:,0] *= 0.4 + 0.6 * np.random.random()
 pts[:,1] *= 0.4 + 0.6 * np.random.random()
 pts[:,2] *= 0.4 + 0.6 * np.random.random()
 
+# random rotation
 pts = pts * np.cos(theta) + np.cross(k, pts) * np.sin(theta) + \
         (np.dot(pts, k) * (1 - np.cos(theta)))[:,None] * k[None,:]
 pts = pts.astype('int')
 
+# binary search to make at most Z points on the convex hull
 l, r = Z, N
 while l + 1 < r:
     m = (l + r) // 2
@@ -46,6 +52,7 @@ while l + 1 < r:
     #print('meow', file = sys.stderr)
 hull = ConvexHull(pts[:l])
 
+# remove redundant edges
 ed = {}
 def Add(a, b, c):
     global ed
@@ -69,7 +76,8 @@ np.random.shuffle(vt)
 mp = {}
 for j, i in enumerate(vt): mp[i] = j
 
-# ax + by + cz = ax0 + by0 + cz0
+# generate plane
+# ax + by + cz = d (= ax0 + by0 + cz0)
 qu = []
 for i in range(K):
     norm = ph[i*2]
@@ -83,4 +91,3 @@ print('%d %d %d' % (len(vt), len(ed), K))
 for i in vt: print('%d %d %d' % tuple(pts[i]))
 for i in ed: print('%d %d' % (mp[i[0]], mp[i[1]]))
 for i in qu: print('%d %d %d %d' % i)
-
