@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     val.AssertEnd();
     fans >> ans;
 
-    if (!std::isnormal(output)) {
+    if (!std::isfinite(output)) {
       throw std::invalid_argument("Not a normal number");
     }
     long double err = std::fabs(output - ans) / ans;
