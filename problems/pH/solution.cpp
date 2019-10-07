@@ -95,7 +95,7 @@ int main () {
             cal(i, j);
         }
     }
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 1; i < N; ++i) {
         for (int j = 1; j <= n / K; ++j) {
             pre_block[i][j] += pre_block[i][j - 1];
         }
