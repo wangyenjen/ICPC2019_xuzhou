@@ -1,0 +1,71 @@
+# K-rectangle
+
+## Description
+
+There are n points on the plane, ($x_1, y_1$),($x_2,y_2$)…($x_n,y_n$), $x_i< x_{i+1}$,$0< y_i$
+
+You need to place several rectangles to cover all of them with the following constraints.
+
+(a point is covered if it lies inside the rectangle or on the side of the rectangle)
+
+1. The bottom side of the rectangle should be **x-axis​**
+2. The cost of a rectangle is $height\times(width + k)$ ($k$ is given by input)
+3. Any two different rectangle can't have intersection
+4. the rectangle can degenerate to two lines, which means $width = 0$ 
+
+Please calculate $n$ value, $ans_i$($1\le i\le n$) ---
+
+the minimum cost to cover all of the points from $1$ to $i$  
+
+**Note**:The input is given in the special version
+
+## Input
+
+The first line contains two integers,
+
+$n$ and $k$ ($1 \le n \le2\times10^5, 1\le k \le 10^6$) ---
+
+the number of points and the coefficient described in the problem.
+
+Each of the next $m$ lines contains two integers,
+
+ $x_i$ and $y_i$($-10^6 \le x_i \le 10^6, 0\le y_i \le 10^6$)---
+meaning $i^{th}$ point is at ($x_i$ , $((y_i + last_i)\space mod\space 10^6)+ 1$).
+
+$last_i$ means $ans_{i-1}$, and it's equal to 0 when $i = 1$
+
+## Output
+
+Output $n$ value, $ans_i$($1\le i\le n$) ---
+
+the minimum cost to cover all of the points from $1$ to $i$  
+
+each of them in separate line
+
+### Sample Input 1
+
+```
+1 2
+-666 666
+```
+
+### Sample Output 1
+
+```
+1334
+```
+
+### Sample Input 2
+
+```
+2 66666
+-666 666
+666 666
+```
+
+### Sample Output 2
+
+```
+44466222
+31170088296
+```
