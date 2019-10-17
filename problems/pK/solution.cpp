@@ -1,195 +1,90 @@
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <deque>
+#include<cstdio>
+#include<iostream>
+#include<cstdlib>
 using namespace std;
-const long long INFF = (long long)2e18;
 const int MXN = (int)2e5 + 7;
-struct Seg {
-#define ls p<<1
-#define rs p<<1|1
-	int ll[MXN<<2], rr[MXN<<2];
-	vector<pair<long long, long long>> stk[MXN<<2];
-	void bd(int l, int r, int p = 1) {
-		ll[p] = l, rr[p] = r;
-		if (l == r) return ;
-		int mid = (l + r) >> 1;
-		bd(l, mid, ls);
-		bd(mid+1, r, rs);
-	}
-	long long qy(int pos, int x, int p = 1) {
-		long long res = INFF;
-		if (!stk[p].empty()) res = min(res, stk[p].back().first + stk[p].back().second*x);
-		int mid = (ll[p] + rr[p]) >> 1;
-		if (ll[p] == rr[p]) return res;
-		else if (pos <= mid) return min(res, qy(pos, x, ls));
-		else return min(res, qy(pos, x, rs));
-	}
-	void add(int l, int r, pair<long long, long long> val, int p = 1) {
-		if (ll[p] > r || l > rr[p]) return ;
-		if (l <= ll[p] && rr[p] <= r) {
-			stk[p].push_back(val);
-			return ;
-		}
-		add(l, r, val, ls);
-		add(l, r, val, rs);
-	}
-	void del(int l, int r, int p = 1) {
-		if (ll[p] > r || l > rr[p]) return ;
-		if (l <= ll[p] && rr[p] <= r) {
-			stk[p].pop_back();
-			return ;
-		}
-		del(l, r, ls);
-		del(l, r, rs);
-	}
-} sg;
-
-pair<int, int> pt[MXN];
+const long long INFF = (long long)1e18;
 int n, k;
-long long dp[MXN];
-int pos[1000007], lb[1000007], rb[1000007];
-vector<int> segy;
-deque<pair<long long, long long>> dq[MXN];
-
-bool cmp(pair<long long, long long> p1, pair<long long, long long> p2, long long x) {
-	long long v1 = p1.first + p1.second*x;
-	long long v2 = p2.first + p2.second*x;
+long long xx[MXN], yy[MXN], h[MXN], dp[MXN];
+pair<long long, int> stk[MXN]; 
+bool check(pair<long long, int> l1, pair<long long, int> l2, pair<long long, int> l3) {
+	if (l3.second == l2.second)
+		return l2.first >= l3.first;
+	long long v1 = (l2.first - l1.first) * (l1.second - l3.second);
+	long long v2 = (l3.first - l1.first) * (l1.second - l2.second);
 	return v1 >= v2;
 }
-bool ins(pair<long long, long long> p1, pair<long long, long long> p2, pair<long long, long long> p3) {
-	// return (p2.F - p1.F) / (p1.S - p2.S) < (p3.F - p1.F) / (p1.S - p3.S);
-	return (p2.first - p1.first) * (p1.second - p3.second) < (p3.first - p1.first) * (p1.second - p2.second);
-}
-void merge(int y, int u) {
-	if (dq[pos[u]].size() < dq[pos[y]].size()) {
-		for (auto it = dq[pos[u]].begin(); it != dq[pos[u]].end(); it++) {
-			long long val, dlt; tie(val, dlt) = *it;
-			while ((int)dq[pos[y]].size() >= 2) {
-				auto itr = --dq[pos[y]].end();
-				auto itl = itr; itl--;
-				if (!ins(*itl, *itr, {val, dlt})) {
-					dq[pos[y]].pop_back();
-				} else {
-					break ; 
-				}
-			}
-			dq[pos[y]].push_back({val, dlt});
-		}
-	} else {
-		swap(pos[u], pos[y]);
-		int num = 0;
-		while (num < 2 && !dq[pos[y]].empty()) {
-			auto it = dq[pos[y]].begin();
-			while ((int)dq[pos[u]].size() >= 2) {
-				auto itr = --dq[pos[u]].end();
-				auto itl = itr; itl--;
-				if (!ins(*itl, *itr, *it)) {
-					dq[pos[u]].pop_back();
-					if (num) num--;
-				} else {
-					break ;
-				}
-			}
-			dq[pos[u]].push_back(*it);
-			dq[pos[y]].pop_front();
-			num++;
-		}
-		int sz = (int)dq[pos[u]].size();
-		for (int i = sz - 1; i >= 0; i--) {
-			dq[pos[y]].push_front(dq[pos[u]][i]);
-		}
+void go(int l, int r) {
+	if (l == r) {
+		dp[l] = min(dp[l], dp[l-1] + yy[l]*k);
+		return ;
+	} 
+	int mid = (l + r) >> 1;
+	go(l, mid);
+	for (int i = mid; i >= l; i--) {
+		if (i == mid) h[i] = yy[i];
+		else h[i] = max(h[i+1], yy[i]);
 	}
-	dq[pos[u]].clear();
-}
-void update_convexhull(int id) {
-	long long x, y; tie(x, y) = pt[id];
-	vector<int> buf; 
-	while (!segy.empty()) {
-		int h = segy.back();
-		if (h > y) break ;
-		segy.pop_back();
-		if (h != y) buf.push_back(h);
-		sg.del(lb[h], rb[h]); rb[h] = -1;
+	for (int i = mid+1; i <= r; i++) {
+		if (i == mid+1) h[i] = yy[i];
+		else h[i] = max(h[i-1], yy[i]);
+	}
 
-		int p = pos[h];
-		while ((int)dq[p].size() >= 2) {
-			auto ll = dq[p].begin();
-			auto rr = ll; rr++;
-			if (cmp(*ll, *rr, y)) { 
-				dq[p].pop_front();
-			} else {
-				break ;
+	// left side >= right side
+	int ptr = l, ll = 0, rr = -1;
+	for (int i = r; i >= mid+1; i--) {
+		while (ptr != mid + 1 && h[ptr] >= h[i]) {
+			pair<long long, int> line = {dp[ptr-1] + h[ptr]*(k - xx[ptr]), h[ptr]};
+			while (rr - ll + 1 >= 2) {
+				if (check(stk[rr-1], stk[rr], line)) rr--;
+				else break ;
 			}
+			stk[++rr] = line;
+			ptr++;
 		}
-	}
-	segy.push_back(y);
-	while (!buf.empty()) {
-		int h = buf.back(); buf.pop_back();
-		merge(y, h);
-	}
-	while ((int)dq[pos[y]].size() >= 2) {
-		auto rr = --dq[pos[y]].end();
-		auto ll = rr; ll--;
-		if (!ins(*ll, *rr, {dp[id-1], k-x})) {
-			dq[pos[y]].pop_back();
-		} else {
-			break ;
+		int lb = ll, rb = rr;
+		while (lb + 9 <= rb) {
+			int p1 = lb + (rb - lb) / 3;
+			int p2 = rb - (rb - lb) / 3;
+			long long v1 = stk[p1].first + stk[p1].second*xx[i];
+			long long v2 = stk[p2].first + stk[p2].second*xx[i];
+			dp[i] = min(dp[i], min(v1, v2));
+			if (v1 >= v2) lb = p1 + 1;
+			else rb = p2 - 1;
 		}
-	}
-	dq[pos[y]].push_back({dp[id-1], k-x});
-	while ((int)dq[pos[y]].size() >= 2) {
-		auto ll = dq[pos[y]].begin();
-		auto rr = ll; rr++;
-		if (cmp(*ll, *rr, y)) {
-			dq[pos[y]].pop_front();
-		} else {
-			break ;
+		for (int j = lb; j <= rb; j++)
+			dp[i] = min(dp[i], stk[j].first + stk[j].second*xx[i]);
+	}	
+	// left side < right side
+	ptr = mid, ll = n+1, rr = n;
+	for (int i = mid+1; i <= r; i++) {
+		while (ptr != l - 1 && h[ptr] <= h[i]) {
+			pair<long long, int> line = {dp[ptr-1], -xx[ptr]};
+			while (rr - ll + 1 >= 2) {
+				if (check(line, stk[ll], stk[ll+1])) ll++;
+				else break ;
+			}
+			stk[--ll] = line;
+			ptr--;
 		}
+		while (rr - ll + 1 >= 2) {
+			long long v1 = stk[ll].first + stk[ll].second*h[i];
+			long long v2 = stk[ll+1].first + stk[ll+1].second*h[i];
+			if (v1 >= v2) ll++;
+			else break ;
+		}
+		if (rr >= ll) dp[i] = min(dp[i], stk[ll].first + h[i]*(stk[ll].second + xx[i] + k));
 	}
-}
-void find_min(int id) {
-	long long x, y; tie(x, y) = pt[id];
 
-	int ll = id, rr = n, ok = -1;
-	long long val, dlt; tie(val, dlt) = *dq[pos[y]].begin();
-	while (ll <= rr) {
-		int mid = (ll + rr) >> 1;
-		long long v = val + dlt*y + y*pt[mid].first;
-		long long res = sg.qy(mid, pt[mid].first);
-		if (v < res) {
-			rr = mid - 1;
-			ok = mid;
-		} else {
-			ll = mid + 1;
-		}
-	}
-	if (ok != -1) {
-		lb[y] = ok; rb[y] = n;
-		sg.add(lb[y], rb[y], {val+dlt*y, y});
-	}
-	dp[id] = sg.qy(id, x);
+	go(mid+1, r);
 }
 int main() {
 	scanf("%d %d", &n, &k);
-	int cntp = 0;
 	for (int i = 1; i <= n; i++) {
-		int x, y; scanf("%d %d", &x, &y);
-		pt[i] = {x, y};
+		scanf("%lld %lld", xx + i, yy + i);
+		dp[i] = INFF;
 	}
-
-	sg.bd(1, n);
-	long long last = 0;
-	for (int i = 1; i <= n; i++) { 
-		pt[i].second = (pt[i].second + last) % 1000000 + 1;
-		int y = pt[i].second;
-		if (!pos[y]) pos[y] = ++cntp;
-		update_convexhull(i);
-		find_min(i);
-		last = dp[i];
-		printf("%lld\n", dp[i]);
-	}
+	go(1, n);
+	printf("%lld\n", dp[n]);
 	return 0;
 }
