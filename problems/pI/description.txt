@@ -4,10 +4,10 @@
 
 Amy and Bob are good friends. Today they want to play a game. 
 
-Here is the precess about it: 
+Here is the process about it: 
 
 1. There are $n$ items in total. The $i^{th}$ item has $a_i$ points to Amy and $b_i$ points to Bob.
-2. Bob takes $m$ items out of the game, so both of them can't pick these items.($0\le m\le n-2$)
+2. Bob takes $m$ items out of the game, so neither of them can pick these items.($0\le m\le n-2$)
 3. Amy picks one item first, assume she takes $j^{th}$ item, then she gets $a_j$ points.
 4. Bob picks one item, assume he takes $k^{th}$item, then he gets $b_k$ points.$k\neq j$
 5. The game ends.
