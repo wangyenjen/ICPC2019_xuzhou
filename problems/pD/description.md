@@ -3,7 +3,7 @@ Polycut
 
 You are given a convex polyhedron with $N$ vertices and $M$ edges. The polyhedron is somewhat ugly, thus you want to cut it into a different shape.
 
-You've chosen $K$ planes in the 3-dimensional space. A plane will cut a polyhedron into two polyhedra. If the polyhedron lies completely on one side of the plane, we define one of the polyhedron is an empty set (which has zero volume). Thus, the $K$ planes will cut the polyhedron into $2^K$ polyhedra.
+You've chosen $K$ planes in the 3-dimensional space. A plane will cut a polyhedron into two polyhedra. If the polyhedron lies completely on one side of the plane, we define one of the polyhedra is an empty set (which has zero volume). Thus, the $K$ planes will cut the polyhedron into $2^K$ polyhedra.
 
 You want to know the volume of each polyhedron after cutting. However, there are too many vertices in the original polyhedron, so you need to write a program to calculate the answer.
 
