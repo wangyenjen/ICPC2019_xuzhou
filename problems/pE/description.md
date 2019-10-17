@@ -5,7 +5,7 @@ Alduhmellah and Behlah both like large numbers, lots of numbers and lots of larg
 
 One day, Alduhmellah wrote down $N$ positive integers $a_1, a_2,\cdots, a_N$. He decided to make them large by applying factorial to each number, so the numbers became $a_1!, a_2!,\cdots, a_N!$. Finally, he multiplied all $N$ numbers to get a super-large number $Z=a_1!\times a_2!\times\cdots\times a_N!$.
 
-A few days later, Behlah met Alduhmellah, and Behlah told Alduhmellah that he came up with another two numbers $X,Y$. Thus, they started to repeatedly multiply $X$ to $Z$, generating a sequence $b_i=Z\times X^i$, to find out the largest value of $i$ such that $A_i$ is a factor of $Y!$.
+A few days later, Behlah met Alduhmellah, and Behlah told Alduhmellah that he came up with another two numbers $X,Y$. Thus, they started to repeatedly multiply $X$ to $Z$, generating a sequence $b_i=Z\times X^i$, to find out the largest value of $i$ such that $b_i$ is a factor of $Y!$.
 
 You, being a friend with Alduhmellah and Behlah, realized that it is such a time-wasting process. Thus, to save their time, you decieded to write a program to calculate the answer.
 
@@ -13,7 +13,7 @@ Input
 -----
 The first line contains one positive integer $T$ ($T\leq 8$) --- the amount of tests.
 
-The description of each test contains two lines: the first line contains three positive integers $N, X, Y$ ($N\leq 10^5; X,Y\leq 10^{18}$), and the second line contains $N$ positive integers $a_1, a_2,\cdots a_N$ ($a_i \leq 10^{18}; a_1+a_2+\cdots+a_N<Y$). Their meanings are explained above.
+The description of each test contains two lines: the first line contains three positive integers $N, X, Y$ ($N\leq 10^5; 2\leq X,Y\leq 10^{18}$), and the second line contains $N$ positive integers $a_1, a_2,\cdots a_N$ ($a_i \leq 10^{18}; a_1+a_2+\cdots+a_N<Y$). Their meanings are explained above.
 
 Output
 ------
