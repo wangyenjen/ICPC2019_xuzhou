@@ -15,6 +15,7 @@ const int MXN = (int)2e5 + 7;
 
 pair<int, int> pt[MXN];
 int n, k;
+bool f = false;
 int cases = 0;
 
 void open_file() {
@@ -72,6 +73,7 @@ int buf[N + 7], realv[N + 7];
 void gen_mono(int n_top, int k_top, bool inc) {
     open_file();
     n = rnd.next(1, n_top), k = rnd.next(1, k_top);
+    if (f) n = n_top, f = false;
     printf("%d %d\n", n, k);
 
     for (int i = 1; i <= n; i++) {
@@ -97,8 +99,8 @@ void gen_mono(int n_top, int k_top, bool inc) {
 void gen_sp(int n_top, int k_top, int y_num) {
 	open_file();
 	n = rnd.next(1, n_top), k = rnd.next(1, k_top);
+    if (f) n = n_top, f = false;
 	printf("%d %d\n", n, k);
-
 	for (int i = 1; i <= y_num; i++) {
 		int y = rnd.next(1, INF);
 		while (in[y + INF] == -cases) y = rnd.next(1, INF);
@@ -151,26 +153,26 @@ int main(int argc, char **argv) {
     gen_rnd(50000, 1000);
     gen_rnd(50000, 500);
     gen_rnd(50000, 100);
-    gen_rnd(50000, 10);
-
+    gen_rnd(50000, 10); 
+    f = true;
 	gen_mono(200000, 1000000, true);
 	gen_mono(200000, 100000, true);
 	gen_mono(200000, 10000, true);
 	gen_mono(200000, 1000, true);
 	gen_mono(200000, 100, true);
-
+    f = true;
 	gen_mono(200000, 1000000, false);
 	gen_mono(200000, 100000, false);
 	gen_mono(200000, 10000, false);
 	gen_mono(200000, 1000, false);
 	gen_mono(200000, 100, false);
-
+    f = true;
 	gen_sp(200000, 5000, 1000);
 	gen_sp(200000, 1000, 1000);
 	gen_sp(200000, 500, 1000);
 	gen_sp(200000, 100, 1000);
 	gen_sp(200000, 10, 1000);
-
+    f = true;
 	gen_sp(100000, 5000, 100);
 	gen_sp(100000, 1000, 100);
 	gen_sp(100000, 500, 100);

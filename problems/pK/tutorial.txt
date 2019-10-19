@@ -6,4 +6,25 @@ $y_{ij}=max(y_k), i\le k\le j$
 
 $dp[j]=min(val_{ij}) = min(dp[i-1]+y_{ij}\times(x_j-x_{i}+k)), 1\le i\le j$
 
-利用cdq分治
+利用cdq分治，令目前遞歸區間為$[L, R]$，中點$mid$為$(L+R)/2$，每次流程如下
+
+1.遞歸$[L,mid]$
+
+2.對於$y_{i,mid}\geq y_{mid+1,j}$, $L\le i\le mid \and mid+1\le j\le R$
+
+更新$dp[j]=min(dp[j], dp[i-1]+y_{i,mid}\times(x_j-x_i+k))$
+
+3.對於$y_{i,mid}\leq y_{mid+1,j}$, $L\le i\le mid \and mid+1\le j\le R$
+
+更新$dp[j]=min(dp[j], dp[i-1]+y_{mid+1,j}\times(x_j-x_i+k))$
+
+4.遞歸$[mid+1, R]$
+
+
+
+對於步驟3可維護凸包並三分搜尋找最小值
+
+對於步驟4可維護凸包使最小值，最小值在第一個
+
+總時間複雜度為cdq分治時間$\times$三分搜尋時間$=O(nlgnlgn)$
+
