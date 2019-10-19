@@ -1,37 +1,16 @@
-/// Author: Wang, Yen-Jen
 #include "testlib.h"
-#include <algorithm>
-#include <cassert>
-#include <vector>
-
-using namespace std;
+constexpr int T = 10;
+constexpr int N = 200;
 
 int main(int argc, char **argv) {
   registerValidation(argc, argv);
 
-  int N = inf.readInt(0, 1000000, "N");
+  int t = inf.readInt(1, T, "T");
   inf.readEoln();
 
-  vector<int> vs;
-
-  for (int i = 1; i < N; i++) {
-    int x = inf.readInt(1, N, "x_i");
-    if (i == N - 1)
-      inf.readEoln();
-    else
-      inf.readSpace();
-
-    vs.push_back(x);
+  for (int i = 0; i < t; i++) {
+    inf.readInt(0, N, "N");
+    inf.readEoln();
   }
-
-  sort(vs.begin(), vs.end());
-
-  for (int i = 1; i < N - 1; i++) {
-    assert(vs[i] != vs[i - 1]);
-  }
-
   inf.readEof();
-
-  return 0;
 }
-

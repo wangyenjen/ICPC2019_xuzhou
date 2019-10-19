@@ -1,40 +1,52 @@
-# Adrien & Yen-Jen
+The Answer to the Ultimate Question of Life, The Universe, and Everything.
 ---
 
-## Problem Description
+# Description
 
-Adrien is a talented little child. 
+For decades, scientists have wondered whether each of the numbers from 0 to 100 
+could be represented as the sum of three cubes, where a cube is the same number 
+multiplied together three times.
+42 was the last number without a proven solution — until now.
 
-He has a special hobby, that is, collecting numbered ping pong balls!
+The solution is 
+$(-80538738812075974)^3 + 80435758145817515^3 + 12602123297335631^3 = 42$
 
-One day, Adrien is watching his treasures in his collection box. 
-Inside the box are $N$ ping pong balls which numbered 1 to $N$ (each number is unique). 
-Unfortunately, he found that one of the balls is disappeared.
+Now, Eddy is suspicious of the existence of other solutions. 
+But, the solutions are not so trivial to find out. Eddy wants to find out easy
+solutions first. That is, for the equation $a^3 + b^3 + c^3 = x$,
+Eddy wants to find out at least one solution for each integer $x$ in $[0, 200]$,
+where $|a|, |b|, |c| \le 5000$.
 
-At this time, he remembered that he saw Yen-Jen, who has a big round belly flash acrossing his home a few days ago. 
+Since Eddy is still busy preparing the test data of some(this?) problem, please
+help him find out at least one solution for each $x$ or tell him that the
+solution doesn't exist when $|a|, |b|, |c| \le 5000$.
 
-He realizes that Yen-Jen is the culprit!
-Adrien, who loves the ball so much, how could he not have an argument with Yen-Jen?
+# Input
 
-However, there need to be some evidences before he argues with Yen-Jen. 
+The first line contains an integer $T$ indicating the number of $x$ to be
+checked.
+Following $T$$ lines each contains one integer $x$.
 
-Therefore, he wants to know what is the number of the missing ball?
+* $1 \le T \le 10$
+* $0 \le x \le 200$
 
+# Output
 
-## Input Format
-The first line contains an integer $N$ ($1 \le N \le 10^6$) - The initial number of ping pong balls in the box.
-The second line contains $N$ distinct integers, $a_1, a_2, ..., a_N$ ($1 \le a_1, a_2, ..., a_N \le N$) -- the number of every ping pong balls in the box.
+For each test case, output one line containing three space-separated integers 
+$a, b, c$ such that $a^3 + b^3 + c^3 = x$ and $|a|, |b|, |c| \le 5000$. If the
+solution doesn't exist, output $\texttt{"impossible"}$.
 
-## Output Format
+# Sample Input
 
-Print a integer - the number of the missing ball.
-
-## Sample Input
-```
-3
-3 1
-```
-## Sample Output
 ```
 2
+1
+2
+```
+
+# Sample Output
+
+```
+1 1 -1
+1 1 0
 ```
