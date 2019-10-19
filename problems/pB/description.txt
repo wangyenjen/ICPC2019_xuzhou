@@ -1,4 +1,4 @@
-How many different breeds of cats
+Cats line up
 ============
 
 Today, you came to a cat village. There are $N$ cats in this village. 
@@ -14,43 +14,67 @@ how many different breeds of cats which appear a positive even number times in t
 
 Now, give you $M$ such questions, can you answer all correctly?
 
+
 Input
 -----
-The first line contains three positive integers
-$N$, $B$ and $M$ ($1\leq N, B, M\leq 10^ 5$) --- the number of cats in this village, 
-the number of breeds of cats in the world and the number of questions you need to answer.
+The first line contains an integer $T$ indicating the number of $N, K$ you need
+to calculate.
+The following $T$ lines each contains two integers $N, K$.
 
-The second line contains $N$ positive integers $a_1, a_2,\cdots, a_{N}$ ($1 \leq a_i \leq B$).
-
-The following $M$ lines contain questions, one per line.
-The first integer in the line is $K$ ($1 \leq K \leq 10^5$), followed by $2\times K$ integers
-$l_1, r_1, l_2, r_2, \cdots, l_K, r_K$ ($1 \leq l_i, r_i \leq N$) in the same line.
-
-It is guaranteed that the sum of all $K$'s is not greater than $10^5$.
+\begin{itemize}
+    \item $1 \le T \le 10^5$
+    \item $1 \le N \le 10^6$
+    \item $1 \le K \le 3$
+\end{itemize}
 
 Output
 -----
-Print $M$ lines. The $i$-th line contains one integer ---
-the number of breeds of cats which appear a positive even number times in the given intervals.
+For each test case, output one line containing one integer
+$x$ --- the number of ways the cats can line up to make all of them happy modulo $998244353$.
 
 Sample Input 1
 ---------------
-```
-5 3 5
-1 3 2 1 2
-1 1 2
-1 1 3
-1 1 4
-2 1 2 4 5
-3 1 1 3 3 5 5
+``` 
+18
+1 1
+2 2
+3 2
+1 3
+2 3
+3 3
+4 3
+5 3
+6 3
+7 3
+8 3
+9 3
+10 3
+11 3
+12 3
+13 3
+14 3
+15 3
 ```
 
 Sample Output 1
 ---------------
 ```
-0
-0
 1
+2
+6
 1
-1
+2
+6
+24
+72
+180
+428
+1042
+2512
+5912
+13592
+30872
+69560
+155568
+345282
 ```
