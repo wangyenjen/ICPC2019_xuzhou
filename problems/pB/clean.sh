@@ -1,4 +1,4 @@
-rm sol
+rm ./solutions/sol
 
 rm -r data
 

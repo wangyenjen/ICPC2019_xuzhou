@@ -1,4 +1,4 @@
-g++ -std=c++17 -O2 sol.cc -o sol
+g++ -std=c++17 -O2 ./solutions/sol.cc -o ./solutions/sol
 
 mkdir data
 
