@@ -10,8 +10,6 @@ There's a $N$ vertice complete graph. Please decompose the graph into $N - 1$ tr
 
 ## Input
 
-輸入N
-
 The input contains only one line with one integer $N$, the number of vertices in the complete graph.
 
 * $2 \leq N \leq 1000$
@@ -21,6 +19,8 @@ The input contains only one line with one integer $N$, the number of vertices in
 If there's no way to decompose the graph, output **-1** in a single line.
 
 Otherwise, output $N - 1$ lines, the $i^{th}$ line is the description of the $i^{th}$ trial. In the $i^{th}$ line, output $i + 1$ integers represents the $i^{th}$ trial. The neiboring integers in one line represents the edges!
+
+Please, do not output trailing spaces in every line!
 
 ### Sample Input
 
