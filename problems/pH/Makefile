@@ -7,7 +7,7 @@ CXXFLAGS += -isystem ../include
 GENERATORS: CXXFLAGS += -O2
 GENERATORS += generators/test
 
-TESTDATA = 01 02 03 04 05 06 07 08 09
+TESTDATA = 01 02 03 04 05 06 07 08 09 10
 
 INPUTS = $(TESTDATA:%=inputs/%.txt)
 OUTPUTS = $(TESTDATA:%=outputs/%.txt)

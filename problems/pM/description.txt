@@ -1,52 +1,45 @@
-# Loli distance
+# Kill the tree
 
 ## Description
 
-Yen-Jen loves loli so much!
+Given a tree with $N$ vertices(vertices are numbered from $1$ to $N$), where 1 is the root of the tree. The weight of the edges on the tree is 1.
 
-Yen-Jen define the so-called loli distance of two integer sequences $S$ and $T$ as follows:
- 
-* if the length of two sequences is not the same, then the loli distance of $S$ and $T$ is $10^{100}$
-* Otherwise, the loli distance between $S$ and $T$ is the number of positions at which the corresponding integers are different.
+Define $d(u, v)$ as the distance between vertex $u$ and $v$.
 
-Now, Yen-Jen has $N$ integer sequence which is selected by his best friend: little cute cat!
+Define a point $w$ on tree $T$ a "critical point", if $c(w) = \Sigma_{v \in V} d(w, v)$ is minimum $\forall v \in T$.
 
-But now, little cute cat wants to challenge Yen-Jen with $Q$ questions, in each question, little cute cat will come up with an integer sequence $T$, and she wants Yen-Jen to answer the number of sequences $S$ he has, such that the loli distnace of $S$ and $T$ is not greater then 2.
- 
+Now, for all $i \in [1, N]$, you must print the "critical points" of the subtree rooted at vertex $i$.
+
 ## Input
 
-The first line of the input contains one integer $N$ denotes the number of integer sequences that Yen-Jen has.
+The first line of the input contains a integer $N$ denotes the number of verteices of the tree.
 
-In the next $N$ line, each line contains an integer sequence. The first integer of each line $L$ denotes the length of the integer sequence. Then, the next $L$ integers are the elements in the integer sequence.
+Then, $N - 1$ line follows, the $i^{th}$ line contains two integers $a_i, b_i$, denotes the $i^{th}$ edge on the tree.
 
-Then, the line contains one integer $Q$ denotes the number of questions that little cute cat wants to challenge.
+* $1 \le N \le 2 \times 10^5$
+* $1 \le a_i, b_i \le N$
+* The input is a tree
 
-In the next $Q$ line, each line contains an integer sequence. The first integer of each line $L$ denotes the length of the integer sequence. Then, the next $L$ integers are the elements in the integer sequence.
+## Output
 
-* $1 \le N, Q \le 10^5$
-* $1 \le$ the elements in integer sequence $\le 10^9$
-* It it guarantee that the total length of integer sequences of Yen-Jen and little cute cat is not greater than $10^5$.
+Output $N$ lines.
 
-### Output
+On the $i^{th}$ line, output the "critical points" of the subtree rooted at vertex $i$ in assending order. Two integers in one line must be separated by on space.
 
-For each question that little cute cat challenge Yen-Jen, output the corresponding answer.
+## Sample Input
 
-### Sample Input
+```
+4
+1 2
+2 3
+2 4
+```
+
+## Sample Output
 
 ```
 2
-3 1 2 3
-3 4 3 1
+2
 3
-3 5 5 5
-3 4 0 3
-3 1 2 5
-```
-
-### Sample Output
-
-```
-0
-2
-1
+4
 ```

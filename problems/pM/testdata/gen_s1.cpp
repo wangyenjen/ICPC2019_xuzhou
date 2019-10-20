@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
-#include "testlib.h"
 using namespace std;
 
 typedef long long ll;
 
+mt19937 rng(880301);
 int randint(int lb, int ub) {
-    return rnd.next(lb, ub);
-    //return uniform_int_distribution<int>(lb, ub)(rng);
+    return uniform_int_distribution<int>(lb, ub)(rng);
 }
 
 int wrandint(int L,int R,int w) {
-    return rnd.wnext(L, R, w);
-    /*int ret = randint(L,R);
+    int ret = randint(L,R);
     if (w>0) {
         while (w--) {
             ret = max(ret,randint(L,R));
@@ -23,31 +21,24 @@ int wrandint(int L,int R,int w) {
             ret = min(ret,randint(L,R));
         }
     }
-    return ret;*/
+    return ret;
 }
 
-void del_init_test() {
-    char str[100];
-    sprintf(str, "rm inputs/*.txt");
-    system(str);
+ll randll() {
+    ll x = randint(0, 2147483647);
+    return ((x << 30) ^ (randint(0, 2147483647)));
+}
+
+ll randll(ll l, ll r) {
+    return randll() % (r - l + 1) + l;
 }
 
 int cases = 0;
 
 void open_file() {
     char str[100];
-    sprintf(str, "inputs/%02d.txt", ++cases);
-    freopen(str, "w", stdout);
-    cerr << "now generating test " << cases << endl;
-}
-
-void check_test() {
-    for (int i = 1; i <= cases; ++i) {
-        char str[100];
-        sprintf(str, "./validator < inputs/%02d.txt", i);
-        cerr << str << endl;
-        system(str);
-    }
+    sprintf(str, "s1_%02d.in", ++cases);
+    freopen(str,"w",stdout);
 }
 
 typedef pair<int, int> pii;
@@ -56,19 +47,20 @@ typedef pair<int, int> pii;
 const int N = 200000;
 
 void gen(int w, bool flag = true) {
+    cerr << "w = " << w << endl;
     open_file();
     int n = randint(N - 5, N);
     vector<int> per;
     for (int i = 1; i <= n; ++i) {
         per.push_back(i);
     }
-    shuffle(per.begin(), per.end());
+    shuffle(per.begin(), per.end(), rng);
     vector<pii> e;
     for (int i = 2; i <= n; ++i) {
         int p = wrandint(1, i - 1, w);
         e.push_back(make_pair(p, i));
     }
-    shuffle(e.begin(), e.end());
+    shuffle(e.begin(), e.end(), rng);
     printf("%d\n", n);
     for (pii p:e) {
         if (randint(1, 2) == 1) swap(p.F, p.S);
@@ -84,13 +76,13 @@ void gen_bst(bool flag) {
     for (int i = 1; i <= n; ++i) {
         per.push_back(i);
     }
-    shuffle(per.begin(), per.end());
+    shuffle(per.begin(), per.end(), rng);
     vector<pii> e;
     for (int i = 2; i <= n; ++i) {
         int p = i / 2;
         e.push_back(make_pair(p, i));
     }
-    shuffle(e.begin(), e.end());
+    shuffle(e.begin(), e.end(), rng);
     printf("%d\n", n);
     for (pii p:e) {
         if (randint(1, 2) == 1) swap(p.F, p.S);
@@ -105,7 +97,7 @@ void gen_chain(int n) {
     for (int i = 1; i <= n; ++i) {
         per.push_back(i);
     }
-    shuffle(per.begin() + 1, per.end());
+    shuffle(per.begin() + 1, per.end(), rng);
     vector<pii> e;
     for (int i = 2; i <= n; ++i) {
         int p = i / 2;
@@ -113,7 +105,7 @@ void gen_chain(int n) {
         else p = i - 2;
         e.push_back(make_pair(p, i));
     }
-    shuffle(e.begin(), e.end());
+    shuffle(e.begin(), e.end(), rng);
     printf("%d\n", n);
     for (pii p:e) {
         if (randint(1, 2) == 1) swap(p.F, p.S);
@@ -128,13 +120,13 @@ void gen_chain_per(int cnt) {
     for (int i = 1; i <= n; ++i) {
         per.push_back(i);
     }
-    shuffle(per.begin() + cnt, per.end());
+    shuffle(per.begin() + cnt, per.end(), rng);
     vector<pii> e;
     for (int i = 2; i <= n; ++i) {
         int p = i -1;
         e.push_back(make_pair(p, i));
     }
-    shuffle(e.begin(), e.end());
+    shuffle(e.begin(), e.end(), rng);
     printf("%d\n", n);
     for (pii p:e) {
         if (randint(1, 2) == 1) swap(p.F, p.S);
@@ -142,9 +134,7 @@ void gen_chain_per(int cnt) {
     }
 }
 
-int main (int argc, char **argv) {
-    del_init_test();
-    registerGen(argc, argv, 1);
+int main () {
     gen(0);
     gen(3);
     gen(-4);
@@ -165,6 +155,5 @@ int main (int argc, char **argv) {
     gen_chain_per(0);
     gen_chain_per(1);
     gen_chain_per(1);
-    check_test();
 }
 

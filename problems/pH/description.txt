@@ -1,50 +1,56 @@
-# Loli loli, and loli!!!
+# Yuuki and a problem
 
 ## Description
 
-Yen-Jen loves lolis very much!
+Yuuki, a cute senior high school student with excellent talent in mahjong, comes up with a cool problem. The problem goes as follows:
 
-Now, there are $N$ cute lolis standing in a line, the $i^{th}$ loli's beauty value is $a_i$.
+Given a sequence with $N$ integers $a_1, a_2, \dots, a_N$ and $Q$ operations. There are two types of opertions.
 
-There are $Q$ events happening in chronological order. There are two types of events: modify and query. 
-
-In modify event, Yen-Jen thinks that the $x^{th}$ loli's value is not good. He thinks that $a_x$ should be $y$ instead.
-
-In query event, Yen-Jen will pick up two continuous segments $[L, R]$ and $[l, r]$, and count the pair of lolis whose beauty value is the same. Formally speaking, Yen-Jen will count the pair $(i, j)$, such that $L \le i \le R, l \le j \le r$, and $a_i = a_j$.
+* Modify operation: Given $x, y$, change $a_x$ to $y$.
+* Query operation: Given $L, R$. Consider $a_L, a_{L + 1}, \dots, a_{R}$ as coin with value $a_L, a_{L + 1}, \dots, a_R$, please find out the minimum number $yuuki$, such that it is impossible to choose a set of the coins stated before, such that the sum of their value is $yuuki$.
 
 ## Input
 
-The first line of the input contains two integers $N, Q$, which denotes the number of lolis, and the number of events.
+The first line of the input contains two integers $N, Q$ denotes the length of the sequence and the number of operations.
 
-In the next line, there are $N$ integers $a_1, a_2, \dots, a_N$. $a_i$ denotes the beauty value of the $i^{th}$ loli initially.
+Then, there are $N$ space-separated integers $a_1, a_2, \dots, a_N$.
 
-Then, there are the description of the $Q$ events, each events occupy a line.
+Then, the following $Q$ lines are the operations. Each operation must follow the following two formats:
 
-The line starts with an integer $t$ denotes the type of event. If $t = 1$, then it is an modify event, two integers $x, y$ will come after $t$. If $t = 2$, then it is an query event, four integers $L, R, l, r$ will come later. The definition of the parameters are mentioned above!
+1. $1 \  x \  y$: Modify operation.
+2. $2 \  L \  R$: Query operation.
 
-* $1 \le N, Q \le 10^5$
-* $1 \le a_i \le 10^5$
-* $1 \le l \le r \le N, 1 \le L \le R \le N$
+The meaning of the variable are stated in the problem description!
+
+* $1 \le N, Q, a_i \le 2 \times 10^5$
 * $1 \le x \le N$
-* $1 \le y \le 10^5$
+* $1 \le y \le 2 \times 10^5$
+* $1 \le L \le R \le N$
 
 ### Output
 
-For each query, output the corresponding number of pairs.
+For each query operation, output the corresponding $yuuki$ value in one line.
 
 ### Sample Input
 
 ```
-4 3
-1 3 2 3
-2 1 3 2 4
-1 4 4
-2 1 3 2 4
+3 7
+1 3 2
+2 1 1
+2 2 2
+2 1 3
+1 3 1
+2 1 3
+1 1 5
+2 1 3
 ```
 
 ### Sample Output
 
 ```
-3
+2
+1
+7
+6
 2
 ```

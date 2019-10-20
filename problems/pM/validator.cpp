@@ -1,41 +1,38 @@
 #include "testlib.h"
+#include <bits/stdc++.h>
 using namespace std;
 
-const int N = 100000;
-const int Q = 100000;
-const int C = 1000000000;
+const int N = 200000;
 
-set<vector<int> > st;
-
-int Check() {
-    int sz = inf.readInt(1, N, "sz");
-    vector<int> v;
-    while (sz--) {
-        inf.readSpace();
-        v.push_back(inf.readInt(1, C, "val"));
+struct DJS {
+    int p[N + 1];
+    void init() {
+        for (int i = 0; i <= N; ++i) {
+            p[i] = i;
+        }
     }
-    ensuref(st.find(v) == st.end(), "repeat!!!");
-    st.insert(v);
-    inf.readEoln();
-    return sz;
-}
+    int Find(int x) {
+        return p[x] == x ? x : p[x] = Find(p[x]);
+    }
+    void Union(int x, int y) {
+        p[ Find(x) ] = Find(y);
+    }
+} djs;
 
-int main(int argc, char **argv) {
+int main(int argc, char* argv[]) {
     registerValidation(argc, argv);
-    int n = inf.readInt(1, N, "n");
+    int n = inf.readInt(1, N);
     inf.readEoln();
-    int tot = 0;
+    djs.init();
+    for (int i = 1; i < n; ++i) {
+        int x = inf.readInt(1, n, "x");
+        inf.readSpace();
+        int y = inf.readInt(1, n, "y");
+        inf.readEoln();
+        djs.Union(x, y);
+    }
     for (int i = 1; i <= n; ++i) {
-        tot += Check();
+        ensuref(djs.Find(1) == djs.Find(i), "not a tree!!!!!!");
     }
-    ensuref(tot <= N, "sigma too big QQQ");
-    st.clear();
-    int q = inf.readInt(1, N, "q");
-    inf.readEoln();
-    tot = 0;
-    for (int i = 1; i <= q; ++i) {
-        tot += Check();
-    }
-    ensuref(tot <= N, "sigma too big QQQ");
     inf.readEof();
 }
