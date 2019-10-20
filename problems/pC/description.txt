@@ -1,54 +1,49 @@
-# Loli Tree
+# <3 numbers
 
 ## Description
+Yen-Jen likes to play with positive integers, especially the <3 numbers in positive integers.
 
-Yen-Jen loves Loli very much!
+<3 number is a special group of positive integers, 
+all of which can be divided into less than three positive integers.
 
-Now, by his investigation, he found that there are $N$ cities (cities are numbered from $1$ to $N$) in his favorite loli country.
+For example, $7$ is a < 3 number. There are two positive integers that divide $7$ by $1$ and $7$. 
+$25$ is not a number less than $3$. There are $1$, $5$ and $25$ that can divide $25$.
 
-In the loli country, there are $N - 1$ two-way roads to connect the $N$ cities such that every country can go to every other country by one or more roads.
+Now, Yen-Jen is curious about how many <3 numbers are included between positive integers $L$ and $R$. 
+But it's too difficult to figure out exactly how many <3 numbers there are. 
+Yen-Jen wants to know whether the proportion of <3 numbers between $L$ and $R$ is less than one third. 
+To be exact, if there are $x$ <3 numbers between $L$ and $R$, Yen-Jen wants to know if $\frac{x}{R-L+1} < \frac{1}{3}$.
 
-In every road, there's a color assigned to it.
+Please help the curious Yen-Jen to answer his questions.
 
-Now, Yen-Jen is interesing in the structure of the city. He will send $Q$ lolis to investigate this country. He will ask the $i^{th}$ loli to city $A_i$, and ask her to go to city $B_i$. The lolis are so smart that they will only go the shortest path to the destination! And when the lolis is going on the road, they will collect the colors that they walk.
-
-And, after the $i^{th}$ investigation, Yen-Jen is interesting that, how many pair $(x, y)$, such that both color $x, y$ appear at least once, and the appearance of color $x$ is twice the appearance of color $y$.
 
 ## Input
+The first line has a positive integer of $T$, which represents the total number of test data.
 
-The first line of the input contains two integers $N, Q$, the number of cities in loli country, and the number of investigations Yen-Jen want to do.
+Each test data is a line of two integers $L, R $.
 
-In the next $N - 1$ lines, the $i^{th}$ line contain three integers $u_i, v_i, c_i$, which means the $i^{th}$ edge connect city $u_i$ and $v_i$, and its color is $c_i$.
-
-In the next $Q$ lines, the $i^{th}$ line contains two integers $A_i, B_i$, which means Yen-Jen wants to send a loli to city $A_i$, and the loli is going to city $B_i$.
-
-* $1 \le N, Q \le 10^5$
-* $1 \le u_i, v_i \le n$
-* $1 \le c_i \le 10^5$
-* $1 \le A_i, B_i \le n$
+* $1 \le T \le 100$
+* $1 \le L \le R \le 10^9$
 
 ## Output
 
-For each investigation, output the corresponding answer mentioned in the problem description.
+Please output one line for each test data. 
+If the proportion of <3 numbers between $L $and $R$ is less than one third, 
+output $\texttt{"Yes"}$, otherwise output $\texttt{"No"}$ (without double quotes)
 
 ### Sample Input
 
 ```
-6 3
-1 2 1
-2 6 2
-2 3 1
-3 5 1
-3 4 2
-1 5
-1 4
-1 6
+3
+7 7
+25 25
+5 14
 ```
 
 ### Sample Output
 
 ```
-0
-1
-0
+No
+Yes
+No
 ```
