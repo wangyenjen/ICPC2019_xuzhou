@@ -10,10 +10,10 @@ You need to place several rectangles to cover all of them with the following con
 
 1. The bottom side of the rectangle should be **x-axis​**
 2. The cost of a rectangle is $height\times(width + k)$ ($k$ is given by input)
-3. Any two different rectangle can't have intersection
+3. Any two different rectangles can't have an intersection
 4. the rectangle can degenerate to two lines, which means $width = 0$ 
 
-Please calculate the minimum cost to cover all of the points .
+Please calculate the minimum cost to cover all of the points.
 
 
 
