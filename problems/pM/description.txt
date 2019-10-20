@@ -12,7 +12,7 @@ Now, for all $i \in [1, N]$, you must print the "critical points" of the subtree
 
 ## Input
 
-The first line of the input contains a integer $N$ denotes the number of verteices of the tree.
+The first line of the input contains an integer $N$ denotes the number of vertices of the tree.
 
 Then, $N - 1$ line follows, the $i^{th}$ line contains two integers $a_i, b_i$, denotes the $i^{th}$ edge on the tree.
 
@@ -24,7 +24,7 @@ Then, $N - 1$ line follows, the $i^{th}$ line contains two integers $a_i, b_i$, 
 
 Output $N$ lines.
 
-On the $i^{th}$ line, output the "critical points" of the subtree rooted at vertex $i$ in assending order. Two integers in one line must be separated by on space.
+On the $i^{th}$ line, output the "critical points" of the subtree rooted at vertex $i$ in ascending order. Two integers in one line must be separated by one space.
 
 ## Sample Input
 

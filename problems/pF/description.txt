@@ -4,8 +4,8 @@ The Answer to the Ultimate Question of Life, The Universe, and Everything.
 # Description
 
 For decades, scientists have wondered whether each of the numbers from 0 to 100 
-could be represented as the sum of three cubes, where a cube is the same number 
-multiplied together three times.
+could be represented as the sum of three cubes, where a cube is the same number multiplied together three times.
+
 42 was the last number without a proven solution — until now.
 
 The solution is 
