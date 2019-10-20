@@ -8,7 +8,7 @@ Now, he is solving a problem with a cute, cat-eared loli. But he drinks too much
 
 Given a rooted tree with $N$ vertices(vertices are numbered from $1$ to $N$) whose root is $1$. In every node, there's an uppercase letter on it.
 
-Define one way to generate a string with len $L$ as follows:
+Define one way to generate a string with length $L$ as follows:
 
 * select a start node $X$
 * go to the parent node $L - 1$ times
@@ -24,7 +24,7 @@ In the next line, a string $S$ is given, the $i^{th}$ character means the Englis
 
 Then, there are $N - 1$ integers in one line, the $i^{th}$ integer is the parent of node $i + 1$.
 
-Then, there are $Q$ lines, the $i^{th}$ line repretens the $i^{th}$ query. In each line, $X_i, L_i$ is given, which is mentioned in the description.
+Then, there are $Q$ lines, the $i^{th}$ line represents the $i^{th}$ query. In each line, $X_i, L_i$ is given, which is mentioned in the description.
 
 It is guaranteed that the testcase is valid!
 

@@ -19,7 +19,7 @@ Input
 -----
 The first line contains an integer $T$ indicating the number of $N, K$ you need
 to calculate.
-The following $T$ lines each contains two integers $N, K$.
+The following $T$ lines each line contains two integers $N, K$.
 
 \begin{itemize}
     \item $1 \le T \le 10^5$
