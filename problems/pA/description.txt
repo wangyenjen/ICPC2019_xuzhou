@@ -6,7 +6,7 @@ Yen-Jen loves loli very much.
 
 Now, there are $10^{18}$ lolis standing in a line, the $i^{th}$ loli's cost value $c_i$ is equal to $i$, the $i^{th} loli's index is also equal to $i$.
 
-Now, Yen-Jen wants to buy some lolis with continuous index, but he only has $S$ dollars. He wants to buy exactly one continuous index of lolis. In order to buy loli with index $x, x + 1, \dots, y - 1, y$, he needs to spend $x \oplus (x + 1) \oplus \dots \oplus (y - 1) \oplus y$ dollars. $\oplus$ is the bitwise exclusive-or operator.
+Now, Yen-Jen wants to buy some lolis with continuous index, but he only has $S$ dollars. He wants to buy some lolis with continuous indices. In order to buy loli with index $x, x + 1, \dots, y - 1, y$, he needs to spend $x \oplus (x + 1) \oplus \dots \oplus (y - 1) \oplus y$ dollars. $\oplus$ is the bitwise exclusive-or operator.
 
 Now, he wants to ask you $T$ questions. In each question, he has $S$ dollars, and he wants the indice of lolis in range $[L, R]$. What's the maximum number of loli that Yen-Jen can buy? If he can't buy any loli, please report $-1$ instead.
 
@@ -18,7 +18,7 @@ Then, in the next $T$ lines, each line contains one question. In each line, ther
 
 * $1 \le T \le 5 \times 10^5$
 * $1 \le L \le R \le 10^{18}$
-* $0 \le C \le 2 \times 10^{18}$
+* $0 \le S \le 2 \times 10^{18}$
 
 ### Output
 
