@@ -44,9 +44,11 @@ int32_t main(){
                 sol.pb(j) , sol.pb(v2);
                 swap(v1 , v2);
             }
-            for(int j = 0; j <= i - 2; j ++)
-                cout << sol[j] << (j + 2 == i ? "\n" : " ");
-            cout << "---" << endl;
+            if(i != 2){
+                for(int j = 0; j <= i - 2; j ++)
+                    cout << sol[j] << (j + 2 == i ? "\n" : " ");
+                //            cout << "---" << endl;
+            }
             for(int j = i - 2; j < sol.size(); j ++)
                 cout << sol[j] << (j + 1 == sol.size() ? "\n" : " ");
         }
