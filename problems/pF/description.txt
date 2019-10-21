@@ -11,13 +11,13 @@ could be represented as the sum of three cubes, where a cube is the same number 
 The solution is 
 $(-80538738812075974)^3 + 80435758145817515^3 + 12602123297335631^3 = 42$
 
-Now, Eddy is suspicious of the existence of other solutions. 
-But, the solutions are not so trivial to find out. Eddy wants to find out easy
+Now, Yen-Jen is suspicious of the existence of other solutions. 
+But, the solutions are not so trivial to find out. Yen-Jen wants to find out easy
 solutions first. That is, for the equation $a^3 + b^3 + c^3 = x$,
-Eddy wants to find out at least one solution for each integer $x$ in $[0, 200]$,
+Yen-Jen wants to find out at least one solution for each integer $x$ in $[0, 200]$,
 where $|a|, |b|, |c| \le 5000$.
 
-Since Eddy is still busy preparing the test data of some(this?) problem, please
+Since Yen-Jen is still busy preparing the test data of some(this?) problem, please
 help him find out at least one solution for each $x$ or tell him that the
 solution doesn't exist when $|a|, |b|, |c| \le 5000$.
 

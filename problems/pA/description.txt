@@ -1,20 +1,20 @@
-# Loli
+# Cat
 
 ## Description
 
-Yen-Jen loves loli very much.
+Yen-Jen loves cat very much.
 
-Now, there are $10^{18}$ lolis standing in a line, the $i^{th}$ loli's cost value $c_i$ is equal to $i$, the $i^{th} loli's index is also equal to $i$.
+Now, there are $10^{18}$ cats standing in a line, the $i^{th}$ cat's cost value $c_i$ is equal to $i$, the $i^{th} cat's index is also equal to $i$.
 
-Now, Yen-Jen wants to buy some lolis with continuous index, but he only has $S$ dollars. He wants to buy some lolis with continuous indices. In order to buy loli with index $x, x + 1, \dots, y - 1, y$, he needs to spend $x \oplus (x + 1) \oplus \dots \oplus (y - 1) \oplus y$ dollars. $\oplus$ is the bitwise exclusive-or operator.
+Now, Yen-Jen wants to buy some cats with continuous index, but he only has $S$ dollars. He wants to buy some cats with continuous indices. In order to buy cat with index $x, x + 1, \dots, y - 1, y$, he needs to spend $x \oplus (x + 1) \oplus \dots \oplus (y - 1) \oplus y$ dollars. $\oplus$ is the bitwise exclusive-or operator.
 
-Now, he wants to ask you $T$ questions. In each question, he has $S$ dollars, and he wants the indices of lolis in range $[L, R]$. What's the maximum number of loli that Yen-Jen can buy? If he can't buy any loli, please report $-1$ instead.
+Now, he wants to ask you $T$ questions. In each question, he has $S$ dollars, and he wants the indices of cats in range $[L, R]$. What's the maximum number of cat that Yen-Jen can buy? If he can't buy any cat, please report $-1$ instead.
 
 ## Input
 
 The first line of the input file contains one integer $T$ denotes the number of questions that Yen-Jen wants to challenge you.
 
-Then, in the next $T$ lines, each line contains one question. In each line, there are three integers $L, R, S$, which means that Yen-Jen has $S$ dollars, and he wants to buy lolis whose indices are in the range $[L, R]$.
+Then, in the next $T$ lines, each line contains one question. In each line, there are three integers $L, R, S$, which means that Yen-Jen has $S$ dollars, and he wants to buy cats whose indices are in the range $[L, R]$.
 
 * $1 \le T \le 5 \times 10^5$
 * $1 \le L \le R \le 10^{18}$
@@ -22,7 +22,7 @@ Then, in the next $T$ lines, each line contains one question. In each line, ther
 
 ### Output
 
-In each question, output the maximum number of lolis that Yen-Jen can buy. If Yen-Jen can't buy any lolis, output $-1$ instead.
+In each question, output the maximum number of cats that Yen-Jen can buy. If Yen-Jen can't buy any cats, output $-1$ instead.
 
 ### Sample Input
 

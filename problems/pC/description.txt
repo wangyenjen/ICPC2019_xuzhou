@@ -1,7 +1,7 @@
 # <3 numbers
 
 ## Description
-Yen-Jen likes to play with positive integers, especially the <3 numbers in positive integers.
+Rosie likes to play with positive integers, especially the <3 numbers in positive integers.
 
 <3 number is a special group of positive integers, 
 all of which can be divided into less than three positive integers.
@@ -9,12 +9,12 @@ all of which can be divided into less than three positive integers.
 For example, $7$ is a < 3 number. There are two positive integers that divide $7$ by $1$ and $7$. 
 $25$ is not a number less than $3$. There are $1$, $5$ and $25$ that can divide $25$.
 
-Now, Yen-Jen is curious about how many <3 numbers are included between positive integers $L$ and $R$. 
+Now, Rosie is curious about how many <3 numbers are included between positive integers $L$ and $R$. 
 But it's too difficult to figure out exactly how many <3 numbers there are. 
-Yen-Jen wants to know whether the proportion of <3 numbers between $L$ and $R$ is less than one third. 
-To be exact, if there are $x$ <3 numbers between $L$ and $R$, Yen-Jen wants to know if $\frac{x}{R-L+1} < \frac{1}{3}$.
+Rosie wants to know whether the proportion of <3 numbers between $L$ and $R$ is less than one third. 
+To be exact, if there are $x$ <3 numbers between $L$ and $R$, Rosie wants to know if $\frac{x}{R-L+1} < \frac{1}{3}$.
 
-Please help the curious Yen-Jen to answer his questions.
+Please help the curious Rosie to answer his questions.
 
 
 ## Input
