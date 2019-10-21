@@ -2,17 +2,20 @@ Cats line up
 ============
 
 Today, you came to a cat village. There are $N$ cats in this village. 
-Each cat is very cute, and all the $N$ cats are very cleverly lined up in a row.
+Each \textbf{cat is very cute}, and all the $N$ cats are very cleverly lined up in a row.
 
-As we all know, there are $B$ breeds of cats in the world.
-Breed of each cat from left to right in this village is $a_1, a_2, ..., a_N$.
+The cats in this village are very special!!! 
+Why do I say that? Because the heights of these cats are unique, and they are all integer numbers between $1$ and $N$.
 
-Because you are a coder and cat lover who is very interested in cat breeds, 
-you may be curious about the following type of question: 
-given $K$ intervals, $[l_1, r_1], [l_2, r_2], ..., [l_K, r_K]$, 
-how many different breeds of cats which appear a positive even number times in the union (that is, if a cat appears in multiple intervals, it should be counted only once) of the $K$ intervals?
+As we all know, everyone dislikes standing next to someone who is too tall when taking pictures, 
+because standing next to such a person would make you look short.
+Humans are like this, and so are cats.
 
-Now, give you $M$ such questions, can you answer all correctly?
+Every cat wants the difference in the height of the cat standing next to it to be no more than $K$.
+A cat would be happy if the difference in the height between it and each of its neighbor(s) is no more than $K$.
+
+Now, given the number of cats in this village and the height difference $K$ that the cat can accept,
+could you calculate that how many ways can the cats line up to make all of them happy?
 
 
 Input
