@@ -1,18 +1,18 @@
 Factory
 ============
 
-You own a special beverage factory producing $K$ kinds of beverages.
+You own a special beverage factory producing $N$ kinds of beverages.
 
-There are $N$ machines in your factory, and each machine can produce all $K$ kinds of beverages. All $N$ machines can work in parallel. One machine can only produce one kind of beverage at a time, but machines can switch from producing a kind of beverage to another immediately.
+There are $K$ machines in your factory, and each machine can produce all $N$ kinds of beverages. All $K$ machines can work in parallel. One machine can only produce one kind of beverage at a time, but machines can switch from producing a kind of beverage to another immediately.
 
-Each machine has different production abilities. Specifically, it takes $r\times t_{ij}$ minutes for the $i$-th machine to produce $r$ liters of the $j$-th beverage. Beverages are produced continuously, so the value of $r$ can be any real number.
+Each machine has different production abilities. Specifically, it takes $r\times t_{ij}$ minutes for the $j$-th machine to produce $r$ liters of the $i$-th beverage. Beverages are produced continuously, so the value of $r$ can be any real number.
 
-Today, you got an order requesting 1 liter of each of all $K$ kinds of beverages. You want to finish the production as soon as possible. Thus, please write a program to calculate the minimum possible time to finish the production.
+Today, you got an order requesting 1 liter of each of all $N$ kinds of beverages. You want to finish the production as soon as possible. Thus, please write a program to calculate the minimum possible time to finish the production.
 
 
 Input
 -----
-The first line contains two positive integers $N, K$ ($N\leq 2\times 10^4, K\leq 50$) --- the number of machines and beverages.
+The first line contains two positive integers $N, K$ ($N\leq 2\times 10^4, K\leq 50$) --- the number of beverages and machines.
 
 The next $N$ lines contain $K$ integers each. The $j$-th number of the $i$-th line contains the number $t_{ij}$ ($1\leq t_{ij}\leq 50$).
 
