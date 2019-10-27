@@ -6,7 +6,7 @@ Yen-Jen loves loli very much!!!
 
 Now, he is solving a problem with a cute, cat-eared loli. But he drinks too much yesterday and his mind is not open yet, so he asked you to solve the following problem for him!
 
-There's a $N$ vertice complete graph. Please decompose the graph into $N - 1$ trials, the $i^{th}$ trial must contain exactly $i$ distinct edges. All edges mush be decomposed in exactly one trial.
+There's a $N$ vertice complete graph. Please decompose the graph into $N - 1$ trials, the $i^{th}$ trial must contain exactly $i$ distinct edges. All edges must be decomposed in exactly one trial.
 
 ## Input
 
