@@ -8,14 +8,13 @@
 
 using namespace std;
 
-const int N = 200000;
+const int N = 400000;
 const int INF = 1000000;
-const int MXN = (int)2e5 + 7;
+const int MXN = (int)4e5 + 7;
 
 
 pair<int, int> pt[MXN];
 int n, k;
-bool f = false;
 int cases = 0;
 
 void open_file() {
@@ -36,26 +35,10 @@ void check_test() {
         system(str);
     }
 }
-int in[2*INF + 7];
-void gen_full(int k_top) {
+int in[2*INF + 7], in2[2*INF + 7];
+void gen_rnd(int l1, int r1, int l2, int r2) {
     open_file();
-    n = N, k = rnd.next(1, k_top);
-    printf("%d %d\n", n, k);
-
-    for (int i = 0; i < n; i++) {
-        int x = rnd.next(-INF, INF);
-        while (in[x + INF] == cases) x = rnd.next(-INF, INF);
-        in[x + INF] = cases;
-        int y = rnd.next(1, INF);
-        pt[i] = {x, y};
-    }
-    sort(pt, pt + n);
-    for (int i = 0; i < n; i++)
-        printf("%d %d\n", pt[i].first, pt[i].second);
-}
-void gen_rnd(int n_top, int k_top) {
-    open_file();
-    n = rnd.next(1, n_top), k = rnd.next(1, k_top);
+    n = rnd.next(l1, r1), k = rnd.next(l2, r2);
     printf("%d %d\n", n, k);
 
     for (int i = 0; i < n; i++) {
@@ -70,10 +53,9 @@ void gen_rnd(int n_top, int k_top) {
         printf("%d %d\n", pt[i].first, pt[i].second);
 }
 int buf[N + 7], realv[N + 7];
-void gen_mono(int n_top, int k_top, bool inc) {
+void gen_mono(int l1, int r1, int l2, int r2, bool inc) {
     open_file();
-    n = rnd.next(1, n_top), k = rnd.next(1, k_top);
-    if (f) n = n_top, f = false;
+    n = rnd.next(l1, r1), k = rnd.next(l2, r2);
     printf("%d %d\n", n, k);
 
     for (int i = 1; i <= n; i++) {
@@ -96,10 +78,9 @@ void gen_mono(int n_top, int k_top, bool inc) {
         printf("%d %d\n", pt[i].first, pt[i].second);
     }
 }
-void gen_sp(int n_top, int k_top, int y_num) {
+void gen_sp(int l1, int r1, int k_top, int y_num) {
 	open_file();
-	n = rnd.next(1, n_top), k = rnd.next(1, k_top);
-    if (f) n = n_top, f = false;
+	n = rnd.next(l1, r1), k = rnd.next(1, k_top);
 	printf("%d %d\n", n, k);
 	for (int i = 1; i <= y_num; i++) {
 		int y = rnd.next(1, INF);
@@ -120,63 +101,91 @@ void gen_sp(int n_top, int k_top, int y_num) {
 	for (int i = 1; i <= n; i++)
 		printf("%d %d\n", pt[i].first, pt[i].second);
 }
+void gen_ysp(int l1, int r1, int l2, int r2) {
+    open_file();
+    n = rnd.next(l1, r1), k = rnd.next(l2, r2);
+    printf("%d %d\n", n, k);
 
+    for (int i = 0; i < n; i++) {
+        int x = rnd.next(-INF, INF);
+        while (in[x + INF] == cases) x = rnd.next(-INF, INF);
+        in[x + INF] = cases;
+        int y = rnd.next(1, INF);
+        while (in2[y] == cases) y = rnd.next(1, INF);
+        in2[y] = cases;
+        pt[i] = {x, y};
+    }
+    sort(pt, pt + n);
+    for (int i = 0; i < n; i++)
+        printf("%d %d\n", pt[i].first, pt[i].second);
+}
 int main(int argc, char **argv) {
     registerGen(argc, argv, 1);
-	gen_rnd(1000, 10000);
-	gen_rnd(1000, 10000);		
-    gen_rnd(1000, 10000);
-	gen_rnd(1000, 1000);
-	gen_rnd(1000, 10000);
-	gen_rnd(1000, 10000);
-	gen_rnd(1000, 10000);
+	gen_rnd(1, 1000, 1, 10000);
+	gen_rnd(1, 1000, 1, 10000);		
+    gen_rnd(1, 100, 1, 100);
+	gen_rnd(1, 1000, 1, 10000);
+	gen_rnd(1, 1000, 1, 100000);
+	gen_rnd(1, 10000, 1, 100000);
+	gen_rnd(1, 10000, 1, 1000000);
 
-    gen_full(1000000);
-    gen_full(100000);
-    gen_full(1000);
-    gen_full(100);
-	gen_full(10);
+    gen_rnd(400000, 400000, 1, 1);
+    gen_rnd(400000, 400000, 10, 100);
 
-    gen_rnd(200000, 10000);
-    gen_rnd(200000, 1000);
-    gen_rnd(200000, 500);
-    gen_rnd(200000, 100);
-    gen_rnd(200000, 10);
 
-    gen_rnd(100000, 10000);
-    gen_rnd(100000, 1000);
-    gen_rnd(100000, 500);
-    gen_rnd(100000, 100);
-    gen_rnd(100000, 10);
+    gen_rnd(400000, 400000, 1, 1000000);
+    gen_rnd(400000, 400000, 1, 100000);
+    gen_rnd(400000, 400000, 1, 10000);
+    gen_rnd(400000, 400000, 1, 1000);
+    gen_rnd(400000, 400000, 1, 100);
 
-    gen_rnd(50000, 10000);
-    gen_rnd(50000, 1000);
-    gen_rnd(50000, 500);
-    gen_rnd(50000, 100);
-    gen_rnd(50000, 10); 
-    f = true;
-	gen_mono(200000, 1000000, true);
-	gen_mono(200000, 100000, true);
-	gen_mono(200000, 10000, true);
-	gen_mono(200000, 1000, true);
-	gen_mono(200000, 100, true);
-    f = true;
-	gen_mono(200000, 1000000, false);
-	gen_mono(200000, 100000, false);
-	gen_mono(200000, 10000, false);
-	gen_mono(200000, 1000, false);
-	gen_mono(200000, 100, false);
-    f = true;
-	gen_sp(200000, 5000, 1000);
-	gen_sp(200000, 1000, 1000);
-	gen_sp(200000, 500, 1000);
-	gen_sp(200000, 100, 1000);
-	gen_sp(200000, 10, 1000);
-    f = true;
-	gen_sp(100000, 5000, 100);
-	gen_sp(100000, 1000, 100);
-	gen_sp(100000, 500, 100);
-	gen_sp(100000, 100, 100);
-	gen_sp(100000, 10, 100);
+    gen_rnd(1, 100000, 1, 1000000);
+    gen_rnd(1, 100000, 1, 100000);
+    gen_rnd(1, 100000, 1, 10000);
+    gen_rnd(1, 100000, 1, 1000);
+    gen_rnd(1, 100000, 1, 100);
+
+    gen_rnd(100000, 200000, 1, 1000000);
+    gen_rnd(100000, 200000, 1, 100000);
+    gen_rnd(100000, 200000, 1, 10000);
+    gen_rnd(100000, 200000, 1, 1000);
+    gen_rnd(100000, 200000, 1, 100);
+
+
+	gen_mono(400000, 400000, 500000, 1000000, true);
+    gen_mono(400000, 400000, 50000, 100000, true);
+    gen_mono(400000, 400000, 5000, 10000, true);
+    gen_mono(400000, 400000, 500, 1000, true);
+    gen_mono(400000, 400000, 1, 100, true);
+
+    gen_mono(1, 400000, 500000, 1000000, true);
+    gen_mono(1, 400000, 50000, 100000, true);
+    gen_mono(1, 400000, 5000, 10000, true);
+    gen_mono(1, 400000, 500, 1000, true);
+    gen_mono(1, 400000, 1, 100, true);
+
+    gen_mono(400000, 400000, 500000, 1000000, false);
+    gen_mono(400000, 400000, 50000, 100000, false);
+    gen_mono(400000, 400000, 5000, 10000, false);
+    gen_mono(400000, 400000, 500, 1000, false);
+    gen_mono(400000, 400000, 1, 100, false);
+
+    gen_mono(1, 400000, 500000, 1000000, false);
+    gen_mono(1, 400000, 50000, 100000, false);
+    gen_mono(1, 400000, 5000, 10000, false);
+    gen_mono(1, 400000, 500, 1000, false);
+    gen_mono(1, 400000, 1, 100, false);
+
+    gen_sp(400000, 400000, 10000, 100000);
+    gen_sp(200000, 400000, 1000, 10000);
+    gen_sp(200000, 400000, 1000, 1000);
+
+    gen_ysp(400000, 400000, 50000, 100000);
+    gen_ysp(400000, 400000, 5000, 10000);
+    gen_ysp(400000, 400000, 500, 1000);
+
+    gen_ysp(200000, 400000, 50000, 100000);
+    gen_ysp(200000, 400000, 5000, 10000);
+    gen_ysp(200000, 400000, 500, 1000);
     check_test();
 }

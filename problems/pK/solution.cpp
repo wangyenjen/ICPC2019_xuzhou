@@ -2,7 +2,7 @@
 #include<iostream>
 #include<cstdlib>
 using namespace std;
-const int MXN = (int)2e5 + 7;
+const int MXN = (int)4e5 + 7;
 const long long INFF = (long long)1e18;
 int n, k;
 long long xx[MXN], yy[MXN], h[MXN], dp[MXN];

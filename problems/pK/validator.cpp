@@ -1,7 +1,7 @@
 #include "testlib.h"
 using namespace std;
 
-const int N = 200000;
+const int N = 400000;
 const int INF = 1000000;
 
 int main(int argc, char **argv) {

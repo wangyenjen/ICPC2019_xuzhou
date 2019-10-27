@@ -1,12 +1,7 @@
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <deque>
+#include<bits/stdc++.h>
 using namespace std;
 const long long INFF = (long long)2e18;
-const int MXN = (int)2e5 + 7;
+const int MXN = (int)3e5 + 7;
 struct Seg {
 #define ls p<<1
 #define rs p<<1|1
