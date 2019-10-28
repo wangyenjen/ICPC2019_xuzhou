@@ -1,11 +1,11 @@
 Cats line up
 ============
 
-Today, you came to a cat village. There are $N$ cats in this village. 
-Each \textbf{cat is very cute}, and all the $N$ cats are very cleverly lined up in a row.
+Today, you come to a cat village. There are $N$ cats in this village. 
+Each \textbf{cat is very cute}, and all the $N$ cats are very cleverly and, they line up in a row.
 
 The cats in this village are very special!!! 
-Why do I say that? Because the heights of these cats are unique, and they are all integer numbers between $1$ and $N$.
+Why do I say that? Because the heights of these cats are unique, and they are all integer numbers between $1$ and $N$(both inclusive).
 
 As we all know, everyone dislikes standing next to someone who is too tall when taking pictures, 
 because standing next to such a person would make you look short.
