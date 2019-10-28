@@ -18,7 +18,7 @@ The next $N$ lines contain $K$ integers each. The $j$-th number of the $i$-th li
 
 Output
 ------
-Output one real number in a line, representing the minimum time to produce 1 liter of each of all $K$ kinds of beverages.
+Output one real number in a line, representing the minimum time to produce 1 liter of each of all $N$ kinds of beverages.
 
 Your answer will be considered correct if the relative error does not exceed $10^{-2}$.
 
