@@ -4,7 +4,7 @@
 Rosie likes to play with positive integers, especially the <3 numbers in positive integers.
 
 <3 number is a special group of positive integers, 
-all of which can be divided into less than three positive integers.
+all of which can be divided by less than three positive integers.
 
 For example, $7$ is a < 3 number. There are two positive integers that divide $7$ by $1$ and $7$. 
 $25$ is not a number less than $3$. There are $1$, $5$ and $25$ that can divide $25$.
