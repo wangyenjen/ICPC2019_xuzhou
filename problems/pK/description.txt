@@ -21,7 +21,7 @@ Please calculate the minimum cost to cover all of the points.
 
 The first line contains two integers,
 
-$n$ and $k$ ($1 \le n \le2\times10^5, 1\le k \le 10^6$) ---
+$n$ and $k$ ($1 \le n \le4\times10^5, 1\le k \le 10^6$) ---
 
 the number of points and the coefficient described in the problem.
 
