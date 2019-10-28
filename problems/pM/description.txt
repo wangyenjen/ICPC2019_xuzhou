@@ -6,7 +6,7 @@ Given a tree with $N$ vertices(vertices are numbered from $1$ to $N$), where 1 i
 
 Define $d(u, v)$ as the distance between vertex $u$ and $v$.
 
-Define a point $w$ on tree $T$ a "critical point", if $c(w) = \Sigma_{v \in V} d(w, v)$ is minimum $\forall v \in T$.
+Define $c(w)=\sum \limits_{v \in T} d(w, v)$. We call a vertex $w$ on tree $T$ \texttt{the critical point}, if $c(w) \le \min \limits_{u \in T} c(u)$
 
 Now, for all $i \in [1, N]$, you must print the "critical points" of the subtree rooted at vertex $i$.
 
