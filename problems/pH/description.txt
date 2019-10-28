@@ -7,7 +7,7 @@ Yuuki, a cute senior high school student with excellent talent in mahjong, comes
 Given a sequence with $N$ integers $a_1, a_2, \dots, a_N$ and $Q$ operations. There are two types of operations.
 
 * Modify operation: Given $x, y$, change $a_x$ to $y$.
-* Query operation: Given $L, R$. Consider $a_L, a_{L + 1}, \dots, a_{R}$ as coin with value $a_L, a_{L + 1}, \dots, a_R$, please find out the minimum number $yuuki$, such that it is impossible to choose a set of the coins stated before, such that the sum of their value is $yuuki$.
+* Query operation: Given $L, R$. Consider $a_L, a_{L + 1}, \dots, a_{R}$ as coins with values $a_L, a_{L + 1}, \dots, a_R$, please find out the minimum number $yuuki$, such that it is impossible to choose a subset of the coins stated before, such that the sum of their values is $yuuki$.
 
 ## Input
 
